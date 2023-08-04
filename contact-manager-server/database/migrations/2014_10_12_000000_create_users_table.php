@@ -21,12 +21,10 @@ return new class extends Migration
             $table->integer('phone number')->unique();
             $table->integer('latitude');
             $table->integer('longtude');
+            
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
         Schema::dropIfExists('users');
