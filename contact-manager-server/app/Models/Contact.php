@@ -9,16 +9,6 @@ class Contact extends Model
 {
     use HasFactory;
 
-    protected $table = 'contacts';
-
-    protected $fillable = [
-        'name',
-        'phone',
-        'latitude',
-        'longtude',
-        'user_id',
-    ];
-
     protected $guarded = [];
 
     public $timestamps = false;
