@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\User;
 use Exception;
 
 class ContactController extends Controller
@@ -19,8 +20,10 @@ class ContactController extends Controller
 
     function getById(Contact $contact){
         try{
-          
-            return $this->customResponse($contact->load('contact'));
+            // $contact = App\Models\Contact::find(1);\
+            $contact = Contact::with('contact')->get();
+            return $this->customResponse($contact);
+            // return $this->customResponse($contact->load('contact'));
         }catch(Exception $e){
             return self::customResponse($e->getMessage(),'error',500);
         }
